@@ -1,0 +1,22 @@
+{
+  "name": "thermoconv",
+  "version": "0.1.0",
+  "description": "Conversions de températures (C, F, K)",
+  "type": "module",
+  "bin": {
+    "thermoconv": "src/cli.js"
+  },
+  "scripts": {
+    "test": "node --test",
+    "lint": "eslint ."
+  },
+  "devDependencies": {
+    "@eslint/js": "9.30.0",
+    "eslint": "9.30.0",
+    "globals": "16.0.0"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "license": "MIT"
+}
