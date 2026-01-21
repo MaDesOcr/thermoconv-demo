@@ -1,0 +1,16 @@
+name: ✨ Fonctionnalité
+description: Proposer une évolution
+title: "feat: "
+labels: ["type: feature"]
+body:
+  - type: textarea
+    id: besoin
+    attributes:
+      label: Besoin
+      placeholder: En tant que…, je veux…, afin de…
+    validations:
+      required: true
+  - type: textarea
+    id: criteres
+    attributes:
+      label: Critères d'acceptation
