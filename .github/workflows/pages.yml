@@ -1,0 +1,49 @@
+name: Pages
+
+on:
+  push:
+    branches: [main]
+    paths: ['docs/**', 'src/**', 'package.json']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  construire:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+      - name: Rapport de couverture des tests
+        run: |
+          node --test --experimental-test-coverage > couverture.txt 2>&1 || true
+          {
+            echo '<!doctype html><meta charset="utf-8"><title>Couverture</title>'
+            echo '<h1>Couverture des tests</h1><pre>'
+            sed -e 's/&/\&amp;/g' -e 's/</\&lt;/g' couverture.txt
+            echo '</pre><p><a href="index.html">Retour</a></p>'
+          } > docs/couverture.html
+          sed -i "s/__VERSION__/$(node -p "require('./package.json').version")/; s/__COMMIT__/${GITHUB_SHA::7}/" docs/index.html
+      - uses: actions/configure-pages@v6
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: docs
+
+  deployer:
+    needs: construire
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploiement.outputs.page_url }}
+    steps:
+      - id: deploiement
+        uses: actions/deploy-pages@v5
