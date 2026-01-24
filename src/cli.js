@@ -1,3 +1,5 @@
-import { celsiusVersFahrenheit } from './conversions.js';
+import { convertir } from './conversions.js';
 
-console.log(celsiusVersFahrenheit(Number(process.argv[2])));
+const [valeur, de = 'C', vers = 'F'] = process.argv.slice(2);
+const resultat = convertir(Number(valeur), de, vers);
+console.log(`${valeur} ${de} = ${resultat} ${vers}`);

@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { celsiusVersFahrenheit, fahrenheitVersCelsius, celsiusVersKelvin } from '../src/conversions.js';
+import { celsiusVersFahrenheit, fahrenheitVersCelsius, celsiusVersKelvin, convertir } from '../src/conversions.js';
 
 test('Celsius ↔ Fahrenheit', () => {
   assert.equal(celsiusVersFahrenheit(100), 212);
@@ -9,4 +9,9 @@ test('Celsius ↔ Fahrenheit', () => {
 
 test('Celsius → Kelvin', () => {
   assert.equal(celsiusVersKelvin(0), 273.15);
+});
+
+test('convertir', () => {
+  assert.equal(convertir(100, 'C', 'F'), 212);
+  assert.throws(() => convertir(1, 'X', 'C'), /X/);
 });
