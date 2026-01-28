@@ -15,3 +15,7 @@ test('convertir', () => {
   assert.equal(convertir(100, 'C', 'F'), 212);
   assert.throws(() => convertir(1, 'X', 'C'), /X/);
 });
+
+test('zéro absolu', () => {
+  assert.throws(() => celsiusVersKelvin(-300), RangeError);
+});

@@ -1,8 +1,15 @@
 const arrondir = (x) => Math.round(x * 100) / 100;
 
-export const celsiusVersFahrenheit = (c) => arrondir((c * 9) / 5 + 32);
+export const ZERO_ABSOLU_C = -273.15;
+
+function verifier(c) {
+  if (c < ZERO_ABSOLU_C) throw new RangeError(`Température impossible : ${c} °C`);
+  return c;
+}
+
+export const celsiusVersFahrenheit = (c) => arrondir((verifier(c) * 9) / 5 + 32);
 export const fahrenheitVersCelsius = (f) => arrondir(((f - 32) * 5) / 9);
-export const celsiusVersKelvin = (c) => arrondir(c + 273.15);
+export const celsiusVersKelvin = (c) => arrondir(verifier(c) + 273.15);
 export const kelvinVersCelsius = (k) => arrondir(k - 273);
 
 // Conversion générique : on passe toujours par les degrés Celsius
