@@ -18,7 +18,7 @@ const depuisCelsius = { C: (x) => x, F: celsiusVersFahrenheit, K: celsiusVersKel
 
 export function convertir(valeur, de, vers) {
   if (!(de in versCelsius) || !(vers in depuisCelsius)) {
-    throw new Error(`Unité inconnue : ${!(de in versCelsius) ? de : vers}`);
+    throw new Error(`Unité inconnue (C, F ou K attendu) : ${!(de in versCelsius) ? de : vers}`);
   }
   return depuisCelsius[vers](versCelsius[de](valeur));
 }
