@@ -1,6 +1,6 @@
 {
   "name": "thermoconv",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Conversions de températures (C, F, K)",
   "type": "module",
   "bin": {
