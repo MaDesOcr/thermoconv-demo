@@ -1,7 +1,7 @@
 # 🌡️ ThermoConv
 
-[![CI](https://github.com/__PROPRIETAIRE__/__DEPOT__/actions/workflows/ci.yml/badge.svg)](https://github.com/__PROPRIETAIRE__/__DEPOT__/actions/workflows/ci.yml)
-[![Release](https://img.shields.io/github/v/release/__PROPRIETAIRE__/__DEPOT__)](https://github.com/__PROPRIETAIRE__/__DEPOT__/releases)
+[![CI](https://github.com/MaDesOcr/thermoconv-demo/actions/workflows/ci.yml/badge.svg)](https://github.com/MaDesOcr/thermoconv-demo/actions/workflows/ci.yml)
+[![Release](https://img.shields.io/github/v/release/MaDesOcr/thermoconv-demo)](https://github.com/MaDesOcr/thermoconv-demo/releases)
 
 Conversions de températures entre Celsius, Fahrenheit et Kelvin. Projet de démonstration
 du module Git / GitHub / GitHub Actions — B3 Dev 2026-2027.
