@@ -10,7 +10,7 @@ function verifier(c) {
 export const celsiusVersFahrenheit = (c) => arrondir((verifier(c) * 9) / 5 + 32);
 export const fahrenheitVersCelsius = (f) => arrondir(((f - 32) * 5) / 9);
 export const celsiusVersKelvin = (c) => arrondir(verifier(c) + 273.15);
-export const kelvinVersCelsius = (k) => arrondir(k - 273);
+export const kelvinVersCelsius = (k) => arrondir(k - 273.15);
 
 // Conversion générique : on passe toujours par les degrés Celsius
 const versCelsius = { C: (x) => x, F: fahrenheitVersCelsius, K: kelvinVersCelsius };
